@@ -18,7 +18,41 @@ for(let i = 0; i < completeBtn.length; i++){
         event.target.setAttribute('disabled', 'true');
         event.target.style.backgroundColor ='#ced6ff';
         alert('Board updated successfully');
+
+        const heading = cardHead[i].innerText;
+
         
+
+        const time = new Date();
+        const hours = time.getHours();
+        const minutes = time.getMinutes();
+        const seconds = time.getSeconds();
+        
+        let formatHours = hours;
+        if(hours > 12){
+            formatHours = hours - 12;
+        }
+        if(hours === 0){
+            formatHours = 12;
+        }
+        
+        let ampm = 'AM'
+        if(hours>=12){
+            ampm = 'PM'
+        }
+
+        
+
+        const activeLog = document.getElementById('active-log-container');
+
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <div class="bg-[#F4F7FF] m-4 rounded-xl">
+                    <div class="p-3">
+                        <p>You have Complete The Task ${heading} at <span> ${formatHours}:${minutes}:${seconds} ${ampm} </span></p>
+                    </div>
+                 </div>
+        `
+        activeLog.appendChild(div)
     })
 }
-
