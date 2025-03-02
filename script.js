@@ -70,7 +70,7 @@ for(let i = 0; i < completeBtn.length; i++){
         `
         activeLog.appendChild(div)
 
-
+        
         document.getElementById('remove-btn').addEventListener('click', function(){
             div.remove()
         })
